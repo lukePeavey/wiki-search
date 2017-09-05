@@ -25,7 +25,7 @@ async function apiFetch(params = {}) {
  * @async
  */
 export async function fetchSuggestions(value) {
-  const params = { search: value, action: 'opensearch' }
+  const params = { search: value, action: 'opensearch', limit: 5 }
   try {
     const suggestions = await apiFetch(params)
     if (!suggestions[1]) return []
