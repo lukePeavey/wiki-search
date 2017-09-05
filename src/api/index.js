@@ -1,4 +1,3 @@
-
 /**
  * Wrapper for Wiki API requests.
  * @param {Object} params query parameters for the wiki api request
@@ -19,6 +18,7 @@ async function apiFetch(params = {}) {
 
 /**
  * Fetches autocomplete suggestions for the search bar.
+ *
  * The 'opensearch' action uses fuzzy matching to get suggested search terms
  * @return {Array.<{title: String, description: String, link: String}>} suggestions
  * @async
@@ -37,9 +37,10 @@ export async function fetchSuggestions(value) {
 }
 
 /**
- * Fetches a list of search results from wiki API for the given search term
+ * Fetches a list of search results from wiki API for the given search term.
+ *
  * This uses the 'query' action to get a set of pages matching the search
- * term. A generated is used to get additional props/info on a set of pages
+ * term. A generator is used to get additional props/info on a set of pages
  * returned by a query, instead of making multiple api requests.
  * @return {Array.<{pageid: Number, title: String, extract: String}>} results
  * @async
