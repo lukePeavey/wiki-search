@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   clearSearchBar = () => {
-    this.textInput.clear()
+    this.searchBar.clear()
   }
 
   render() {
@@ -34,7 +34,7 @@ class App extends Component {
         <section className="header">
           <a href="/" className="home material-icons" />
           <SearchBar
-            ref={(input) => { this.textInput = input }}
+            ref={(input) => { this.searchBar = input }}
             onSubmit={this.submitSearch}
             onChange={() => {}}
             placeholder={showingResults ? 'Search Wikipedia again...' : 'Search Wikipedia...'}
