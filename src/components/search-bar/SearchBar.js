@@ -18,7 +18,7 @@ export default class SearchBar extends Component {
       suggestions: newValue === '' ? [] : prevState.suggestions
     }))
     // The parent component can provide onchange callback via props.
-    this.props.onChange(newValue)
+    this.props.onChange(event, { newValue })
   }
 
   handleSubmit = (event, { value }) => {
@@ -43,14 +43,14 @@ export default class SearchBar extends Component {
     this.handleSubmit(event, { value: suggestion.title })
   }
 
+  clear = () => {
+    this.setState({value: '', suggestions: []})
+  }
+
   render() {
     const { id, placeholder } = this.props
     const { value, suggestions, results } = this.state
-    const inputProps = {
-      placeholder: 'Search For Anything on Wikipedia',
-      onChange: this.handleChange,
-      value
-    }
+    const inputProps = { placeholder, value, onChange: this.handleChange }
     return (
       <form className="searchBar" onSubmit={this.handleSubmit}>
         <Autosuggest
