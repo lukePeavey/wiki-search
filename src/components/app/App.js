@@ -7,8 +7,7 @@ import './App.css'
 class App extends Component {
   state = {
     results: [],
-    showingResults: false,
-    searchPlaceholder: 'Search Wikipedia...'
+    showingResults: false
   }
 
   submitSearch = (event, { value }) => {
@@ -24,6 +23,11 @@ class App extends Component {
     this.searchBar.clear()
   }
 
+  getPlaceholder() {
+    const { showingResults } = this.state
+    return showingResults ? 'Search Wikipedia...' : 'Search Wikipedia again...'
+  }
+
   render() {
     const { results, showingResults } = this.state
     return (
@@ -37,18 +41,10 @@ class App extends Component {
             home
           </a>
           <SearchBar
-            ref={component => {
-              this.searchBar = component
-            }}
+            ref={component => (this.searchBar = component)}
             onSubmit={this.submitSearch}
             onChange={() => {}}
-            placeholder={
-              showingResults ? (
-                'Search Wikipedia again...'
-              ) : (
-                'Search Wikipedia...'
-              )
-            }
+            placeholder={this.getPlaceholder()}
           />
         </section>
         <section className="content">
