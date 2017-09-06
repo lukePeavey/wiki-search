@@ -1,4 +1,6 @@
 import { stringify } from 'query-string'
+import { values } from 'lodash'
+
 /**
  * Wrapper for Wiki API requests.
  * @param {Object} params query parameters for the wiki api request
@@ -65,7 +67,7 @@ export async function fetchResults(value) {
   try {
     const results = await apiFetch(params)
     if (!results.query) return []
-    return Object.values(results.query.pages).sort((a, b) => a.index - b.index)
+    return values(results.query.pages).sort((a, b) => a.index - b.index)
   } catch (err) {
     return Promise.reject(err)
   }
