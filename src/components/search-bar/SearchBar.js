@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Autosuggest from 'react-autosuggest'
-import { fetchSuggestions, fetchResults } from '../../api'
+import { fetchSuggestions } from '../../api'
 import './SearchBar.css'
 
 /**
@@ -44,12 +44,12 @@ export default class SearchBar extends Component {
   }
 
   clear = () => {
-    this.setState({value: '', suggestions: []})
+    this.setState({ value: '', suggestions: [] })
   }
 
   render() {
-    const { id, placeholder } = this.props
-    const { value, suggestions, results } = this.state
+    const { placeholder } = this.props
+    const { value, suggestions } = this.state
     const inputProps = { placeholder, value, onChange: this.handleChange }
     return (
       <form className="searchBar" onSubmit={this.handleSubmit}>

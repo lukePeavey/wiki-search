@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import SearchBar from '../search-bar/SearchBar'
 import SearchResults from '../search-results/SearchResults'
-import { isEmpty } from 'lodash'
-import { fetchSuggestions, fetchResults } from '../../api'
+import { fetchResults } from '../../api'
 import './App.css'
-import wikiLogo from '../../images/wikipedia.png'
 
 class App extends Component {
   state = {
     results: [],
-    value: '',
     showingResults: false,
     searchPlaceholder: 'Search Wikipedia...'
   }
@@ -32,12 +29,22 @@ class App extends Component {
     return (
       <div className={`app ${showingResults ? 'showingResults' : ''}`}>
         <section className="header">
-          <a href="/" className="home material-icons" />
+          <a href="/" className="home material-icons" alt="homepage">
+            home
+          </a>
           <SearchBar
-            ref={(input) => { this.searchBar = input }}
+            ref={component => {
+              this.searchBar = component
+            }}
             onSubmit={this.submitSearch}
             onChange={() => {}}
-            placeholder={showingResults ? 'Search Wikipedia again...' : 'Search Wikipedia...'}
+            placeholder={
+              showingResults ? (
+                'Search Wikipedia again...'
+              ) : (
+                'Search Wikipedia...'
+              )
+            }
           />
         </section>
         <section className="content">
