@@ -29,7 +29,11 @@ class App extends Component {
     return (
       <div className={`app ${showingResults ? 'showingResults' : ''}`}>
         <section className="header">
-          <a href="/" className="home material-icons" alt="homepage">
+          <a
+            href={process.env.NODE_ENV === 'development' ? '/' : '/wiki-search'}
+            className="home material-icons"
+            alt="homepage"
+          >
             home
           </a>
           <SearchBar
