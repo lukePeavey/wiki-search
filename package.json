@@ -2,6 +2,7 @@
   "name": "wiki-search",
   "version": "0.1.0",
   "author": "Luke Peavey",
+  "homepage": "https://lukepeavey.github.io/wiki-search",
   "private": true,
   "dependencies": {
     "gh-pages": "^1.0.0",
@@ -29,6 +30,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
