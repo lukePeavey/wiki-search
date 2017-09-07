@@ -34,7 +34,7 @@ class App extends Component {
       <div className={`app ${showingResults ? 'showingResults' : ''}`}>
         <section className="header">
           <a
-            href={process.env.NODE_ENV === 'development' ? '/' : '/wiki-search'}
+            href={process.env.PUBLIC_URL || '/'}
             className="home material-icons"
             alt="homepage"
           >
