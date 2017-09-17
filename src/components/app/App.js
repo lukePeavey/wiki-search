@@ -25,7 +25,7 @@ class App extends Component {
 
   getPlaceholder() {
     const { showingResults } = this.state
-    return showingResults ? 'Search Wikipedia...' : 'Search Wikipedia again...'
+    return showingResults ? 'Search Wikipedia again...' : 'Search Wikipedia...'
   }
 
   render() {
