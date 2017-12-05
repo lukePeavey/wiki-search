@@ -16,7 +16,7 @@
   width: 100%;
   margin: 0;
   padding: 0;
-  background: #fff;
+  background: transparent;
   transition: all 170ms ease-out;
 }
 
